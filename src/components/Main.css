@@ -11,9 +11,9 @@
     align-items: center;
     justify-content: center;
 }
-
+ 
 .mainImg{
-    margin-right: 2rem;
+    margin-right: 2em;
     width: 450px;
     height: 420px;
 }

@@ -23,6 +23,7 @@
     opacity: 0.9;
 }
 
+
 .close{
     display: flex;
     justify-content: flex-end;
@@ -43,7 +44,7 @@
 
 
 .issuebox{
-    height: 12rem;
+    height: 7.5em;
     border-radius: 25px;
     outline: none;
     border: none;

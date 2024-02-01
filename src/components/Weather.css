@@ -47,5 +47,9 @@
 
 .weatherData{
     padding: 2rem;
+}
 
+.weatherloader{
+    width: 10em;
+    height: 10em;
 }

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Weather.css'   
+import weatherloader from '../Utilities/wifi.gif'
 
 function Weather() {
+
+  const [loading, setLoading] = useState(false);
 
     let weather = {
         apiKey: "8b478ad7f6928c16526afbf709afae1e",
@@ -11,6 +14,7 @@ function Weather() {
               if (!response.ok) {
                 throw new Error("No weather found.");
               }
+              setLoading(false);
               return response.json();
             })
             .then((data) => this.displayWeather(data));
@@ -31,7 +35,6 @@ function Weather() {
         },
         search: function () {
           this.fetchWeather(document.querySelector(".weathersearchBar").value);
-
         },
       };
       
@@ -40,6 +43,7 @@ function Weather() {
     if (searchBar) { 
       searchBar.addEventListener("keyup", function (event) {
         if (event.key === "Enter") {
+            setLoading(true);
             weather.search();
         }
       });
@@ -48,10 +52,12 @@ function Weather() {
 
 
   return (
+    <>
     <div className='weatherBody'>
         <div className="weatherCard">
             <input className='weathersearchBar' placeholder='Enter the Location. . .'/>
             <div className='weatherData'>
+                {loading && <img className='weatherloader' alt='weatherloader' src={weatherloader}/> }
                 <div className='city'></div>
                 <div className='temp'></div>
                 <div className='desc'></div>
@@ -60,6 +66,7 @@ function Weather() {
             </div>
         </div>
     </div>
+    </>
   )
 }
 
